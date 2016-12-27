@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Sun Dec 11 13:58:07 COT 2016
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=LectorHuellas2.jar
+manifest.mergeall=true
+manifest.mainclass=Main.JSGD
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=
