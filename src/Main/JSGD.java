@@ -22,7 +22,7 @@ import javax.swing.*;
 
 /**
  *
- * @author  Castillo
+ * @author  Castillo, Guiña, Jova
  */
 public class JSGD extends javax.swing.JFrame {
 	
@@ -33,6 +33,7 @@ public class JSGD extends javax.swing.JFrame {
 	   private String user = "postgres";
 	   private String password = "1234";
 	   private String url = "jdbc:postgresql://localhost:5432/"+bd;
+	   private int hola;
 
 	   private Connection connection = null;
 	   private ResultSet resultSet = null;
