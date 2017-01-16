@@ -18,6 +18,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 /**
@@ -31,7 +33,7 @@ public class JSGD extends javax.swing.JFrame {
 	//DATOS PARA LA CONEXION
 	   private String bd = "lector";
 	   private String user = "postgres";
-	   private String password = "1234";
+	   private String password = "Fernando30";
 	   private String url = "jdbc:postgresql://localhost:5432/"+bd;
 	   private int hola;
 
@@ -73,10 +75,36 @@ public class JSGD extends javax.swing.JFrame {
         disableControls();
         this.jComboBoxRegisterSecurityLevel.setSelectedIndex(4);
         this.jComboBoxVerifySecurityLevel.setSelectedIndex(4);
-        name = String.valueOf(JOptionPane.showInputDialog(null, "Ingrese id"));
+        
+        JButton btnCedula = new JButton();
+        btnCedula.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		name = String.valueOf(JOptionPane.showInputDialog(null, "Ingrese su cédula"));
 
-      
-        System.out.printf("el id es " +  name +  "\n");
+        	      
+                System.out.printf("el id es " +  name +  "\n");
+        		
+        		
+        	}
+        });
+        btnCedula.setText("Buscar C\u00E9dula");
+        btnCedula.setPreferredSize(new Dimension(270, 30));
+        btnCedula.setMinimumSize(new Dimension(270, 30));
+        btnCedula.setMaximumSize(new Dimension(270, 30));
+        btnCedula.setActionCommand("jButton1");
+        btnCedula.setBounds(12, 321, 284, 30);
+        jPanelRegisterVerify.add(btnCedula);
+        
+        JLabel lblEvento = new JLabel();
+        lblEvento.setText("Evento:");
+        lblEvento.setBounds(377, 28, 44, 14);
+        jPanelRegisterVerify.add(lblEvento);
+        
+        JComboBox comboBox = new JComboBox();
+       // comboBox.setSelectedIndex(4);
+        comboBox.setBounds(330, 45, 140, 20);
+        jPanelRegisterVerify.add(comboBox);
+        
     }
     
     public void conexion(){
@@ -244,23 +272,41 @@ public class JSGD extends javax.swing.JFrame {
         jSliderSeconds.setBounds(270, 250, 220, 45);
         jPanelRegisterVerify = new javax.swing.JPanel();
         jLabelSecurityLevel = new javax.swing.JLabel();
+        jLabelSecurityLevel.setBounds(0, 3, 495, 73);
         jLabelRegistration = new javax.swing.JLabel();
+        jLabelRegistration.setBounds(52, 28, 63, 14);
         jLabelVerification = new javax.swing.JLabel();
+        jLabelVerification.setBounds(206, 28, 78, 14);
         jComboBoxRegisterSecurityLevel = new javax.swing.JComboBox();
+        jComboBoxRegisterSecurityLevel.setBounds(22, 45, 128, 20);
         jComboBoxVerifySecurityLevel = new javax.swing.JComboBox();
+        jComboBoxVerifySecurityLevel.setBounds(160, 45, 160, 20);
         jLabelRegistrationBox = new javax.swing.JLabel();
+        jLabelRegistrationBox.setBounds(10, 80, 290, 240);
         jLabelRegisterImage1 = new javax.swing.JLabel();
+        jLabelRegisterImage1.setBounds(20, 100, 130, 150);
         jLabelRegisterImage2 = new javax.swing.JLabel();
+        jLabelRegisterImage2.setBounds(160, 100, 130, 150);
         jLabelVerificationBox = new javax.swing.JLabel();
+        jLabelVerificationBox.setBounds(320, 80, 150, 240);
         jLabelVerifyImage = new javax.swing.JLabel();
+        jLabelVerifyImage.setBounds(330, 100, 130, 150);
         jButtonCaptureR1 = new javax.swing.JButton();
+        jButtonCaptureR1.setBounds(20, 280, 130, 30);
         jButtonCaptureV1 = new javax.swing.JButton();
+        jButtonCaptureV1.setBounds(330, 280, 130, 30);
         jButtonRegister = new javax.swing.JButton();
+        jButtonRegister.setBounds(12, 355, 284, 30);
         jButtonVerify = new javax.swing.JButton();
+        jButtonVerify.setBounds(330, 340, 130, 30);
         jButtonCaptureR2 = new javax.swing.JButton();
+        jButtonCaptureR2.setBounds(160, 280, 130, 30);
         jProgressBarR1 = new javax.swing.JProgressBar();
+        jProgressBarR1.setBounds(20, 250, 130, 14);
         jProgressBarR2 = new javax.swing.JProgressBar();
+        jProgressBarR2.setBounds(160, 250, 130, 14);
         jProgressBarV1 = new javax.swing.JProgressBar();
+        jProgressBarV1.setBounds(330, 250, 130, 14);
         jPanelDeviceInfo = new javax.swing.JPanel();
         jLabelDeviceInfoGroup = new javax.swing.JLabel();
         jLabelDeviceID = new javax.swing.JLabel();
@@ -382,44 +428,43 @@ public class JSGD extends javax.swing.JFrame {
         jPanelImage.add(jSliderSeconds);
 
         jTabbedPane1.addTab("Imagen", jPanelImage);
-
-        jPanelRegisterVerify.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanelRegisterVerify.setLayout(null);
 
         jLabelSecurityLevel.setBorder(javax.swing.BorderFactory.createTitledBorder("Nivel Seguridad"));
-        jPanelRegisterVerify.add(jLabelSecurityLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 460, 60));
+        jPanelRegisterVerify.add(jLabelSecurityLevel);
 
         jLabelRegistration.setText("Registrar");
-        jPanelRegisterVerify.add(jLabelRegistration, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 34, -1, -1));
+        jPanelRegisterVerify.add(jLabelRegistration);
 
         jLabelVerification.setText("Verificacion");
-        jPanelRegisterVerify.add(jLabelVerification, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 34, -1, -1));
+        jPanelRegisterVerify.add(jLabelVerification);
 
         jComboBoxRegisterSecurityLevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Escaza", "Minimo", "Bajo", "Medio", "Medio Normal", "Normal", "Alto", "Muy Alto", "Extrema" }));
-        jPanelRegisterVerify.add(jComboBoxRegisterSecurityLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 30, 130, -1));
+        jPanelRegisterVerify.add(jComboBoxRegisterSecurityLevel);
 
         jComboBoxVerifySecurityLevel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Escaza", "Minimo", "Bajo", "Medio", "Medio Normal", "Normal", "Alto", "Muy Alto", "Extrema" }));
-        jPanelRegisterVerify.add(jComboBoxVerifySecurityLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 30, 130, -1));
+        jPanelRegisterVerify.add(jComboBoxVerifySecurityLevel);
 
         jLabelRegistrationBox.setBorder(javax.swing.BorderFactory.createTitledBorder("Registrar"));
-        jPanelRegisterVerify.add(jLabelRegistrationBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 290, 240));
+        jPanelRegisterVerify.add(jLabelRegistrationBox);
 
         jLabelRegisterImage1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jLabelRegisterImage1.setMinimumSize(new java.awt.Dimension(130, 150));
         jLabelRegisterImage1.setPreferredSize(new java.awt.Dimension(130, 150));
-        jPanelRegisterVerify.add(jLabelRegisterImage1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        jPanelRegisterVerify.add(jLabelRegisterImage1);
 
         jLabelRegisterImage2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jLabelRegisterImage2.setMinimumSize(new java.awt.Dimension(130, 150));
         jLabelRegisterImage2.setPreferredSize(new java.awt.Dimension(130, 150));
-        jPanelRegisterVerify.add(jLabelRegisterImage2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, -1, -1));
+        jPanelRegisterVerify.add(jLabelRegisterImage2);
 
         jLabelVerificationBox.setBorder(javax.swing.BorderFactory.createTitledBorder("Verificacion"));
-        jPanelRegisterVerify.add(jLabelVerificationBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 150, 240));
+        jPanelRegisterVerify.add(jLabelVerificationBox);
 
         jLabelVerifyImage.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         jLabelVerifyImage.setMinimumSize(new java.awt.Dimension(130, 150));
         jLabelVerifyImage.setPreferredSize(new java.awt.Dimension(130, 150));
-        jPanelRegisterVerify.add(jLabelVerifyImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, -1, -1));
+        jPanelRegisterVerify.add(jLabelVerifyImage);
 
         jButtonCaptureR1.setText("Capturar R1");
         jButtonCaptureR1.setActionCommand("jButton1");
@@ -431,7 +476,7 @@ public class JSGD extends javax.swing.JFrame {
                 jButtonCaptureR1ActionPerformed(evt);
             }
         });
-        jPanelRegisterVerify.add(jButtonCaptureR1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 130, 30));
+        jPanelRegisterVerify.add(jButtonCaptureR1);
 
         jButtonCaptureV1.setText("Capturar");
         jButtonCaptureV1.setActionCommand("jButton1");
@@ -443,7 +488,7 @@ public class JSGD extends javax.swing.JFrame {
                 jButtonCaptureV1ActionPerformed(evt);
             }
         });
-        jPanelRegisterVerify.add(jButtonCaptureV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 130, 30));
+        jPanelRegisterVerify.add(jButtonCaptureV1);
 
         jButtonRegister.setText("Registrar");
         jButtonRegister.setActionCommand("jButton1");
@@ -455,7 +500,7 @@ public class JSGD extends javax.swing.JFrame {
                 jButtonRegisterActionPerformed(evt);
             }
         });
-        jPanelRegisterVerify.add(jButtonRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 270, 30));
+        jPanelRegisterVerify.add(jButtonRegister);
 
         jButtonVerify.setText("Verificar");
         jButtonVerify.setActionCommand("jButton1");
@@ -472,7 +517,7 @@ public class JSGD extends javax.swing.JFrame {
 				}
             }
         });
-        jPanelRegisterVerify.add(jButtonVerify, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, 130, 30));
+        jPanelRegisterVerify.add(jButtonVerify);
 
         jButtonCaptureR2.setText("Capturar R2");
         jButtonCaptureR2.setActionCommand("jButton1");
@@ -484,16 +529,16 @@ public class JSGD extends javax.swing.JFrame {
                 jButtonCaptureR2ActionPerformed(evt);
             }
         });
-        jPanelRegisterVerify.add(jButtonCaptureR2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 130, 30));
+        jPanelRegisterVerify.add(jButtonCaptureR2);
 
         jProgressBarR1.setForeground(new java.awt.Color(0, 51, 153));
-        jPanelRegisterVerify.add(jProgressBarR1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 130, -1));
+        jPanelRegisterVerify.add(jProgressBarR1);
 
         jProgressBarR2.setForeground(new java.awt.Color(0, 51, 153));
-        jPanelRegisterVerify.add(jProgressBarR2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 130, -1));
+        jPanelRegisterVerify.add(jProgressBarR2);
 
         jProgressBarV1.setForeground(new java.awt.Color(0, 51, 153));
-        jPanelRegisterVerify.add(jProgressBarV1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 250, 130, -1));
+        jPanelRegisterVerify.add(jProgressBarV1);
 
         jTabbedPane1.addTab("Registrar/Verificar", jPanelRegisterVerify);
 
@@ -1025,6 +1070,8 @@ public class JSGD extends javax.swing.JFrame {
     public static void main(String args[]) {
     	JSGD ventana= new JSGD();
     	ventana.setVisible(true);
+    	ventana.setLocationRelativeTo(null);
+    	ventana.setDefaultCloseOperation(ventana.EXIT_ON_CLOSE);
     	ventana.conexion();
     	ventana.leerTodasHuellas();
         //new JSGD().setVisible(true);
@@ -1091,6 +1138,4 @@ public class JSGD extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldImageHeight;
     private javax.swing.JTextField jTextFieldImageWidth;
     private javax.swing.JTextField jTextFieldSerialNumber;
-    // End of variables declaration//GEN-END:variables
-    
 }
